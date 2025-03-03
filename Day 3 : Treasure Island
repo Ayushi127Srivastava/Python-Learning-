@@ -1,0 +1,23 @@
+## Treasure Island 
+
+print("Welcome to the Treasure Island : Your Missios is to find the treasure")
+dir= input("You're at a cross road. Where do you want to go? 'Right' or 'Left' ").strip().lower() ## .strip().lower() is used to make the text in all lower
+if dir=="left":
+    island=input("You've come to the lake, there is island in the middle of the lake. You want to 'Wait' or 'Swim' to cross ").strip().lower()
+    if island=="wait":
+        print("You've arrived at the island unharmed")
+        door=input("You have 3 doors to enter - which one will you choose? 'Red','Blue','Yellow'").strip().lower()
+        if door=="yellow":
+         print("You Win")
+        elif door=="red":
+         print("Burned by the fire : Game Over")
+        elif door=="blue":
+         print("Eaten by the beast : Game Over")
+        else:
+           print("You entered the wrong door : Game Over")
+
+    else:
+        print("Attacked by trout: Game Over")
+else:
+    print("Fall into the hole : Game Over")
+
