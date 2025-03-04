@@ -1,0 +1,39 @@
+
+##hangman
+import random
+# List of words
+word_list = ['python', 'hangman', 'developer', 'programming', 'challenge']
+chosen_word = random.choice(word_list)
+
+#convert the word to underscores
+display=['_']*len(chosen_word)
+
+#setting the number of lives
+lives=6
+
+print("Welcome to the Hangman Game")
+print(''.join(display))
+
+while '_' in display and lives>0:
+     guess_letter=input("\nGuess a letter?\n ").strip().lower()
+
+     if guess_letter in chosen_word:
+          for i in range(len(chosen_word)):
+               if chosen_word[i]==guess_letter:
+                    display[i]=guess_letter
+          print("Correct")
+     else:
+          lives-=1
+          print(f"Wrong! You have {lives} lives left")
+
+        
+     print(''.join(display))
+
+if "_" not in display:
+    print("\n🎉 You won! The word was:", chosen_word)
+else:
+    print("\n💀 You lost! The word was:", chosen_word)
+
+
+
+
