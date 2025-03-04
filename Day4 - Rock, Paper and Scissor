@@ -1,0 +1,23 @@
+## Rock paper scissor
+## Rock, Paper and Scissor Game
+##Rock beats Scissors (Rock crushes Scissors)
+##Scissors beats Paper (Scissors cut Paper)
+##Paper beats Rock (Paper covers Rock)
+import random
+
+choices=['rock','paper','scissor']
+
+player_choice=input("choose from Rock, Paper, Scissor  ").strip().lower()
+
+computer_choice=random.choice(choices)
+
+if player_choice  not in choices:
+    print(f"Computer choose:{computer_choice}")
+elif player_choice==computer_choice:
+    print("Its a tie")
+elif (player_choice=='rock' and computer_choice=='scissor') or (player_choice=='scissor' and computer_choice=='paper') or (player_choice=='paper' and computer_choice=='rock'):
+    print(f" Computer choose : {computer_choice},Therefore You won")
+else:
+    print(f" Computer choose : {computer_choice},Therefore Computer won")
+
+    
