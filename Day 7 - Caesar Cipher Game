@@ -1,0 +1,33 @@
+def caesar_cipher(text, shift, direction):
+    result = ""
+    
+    for char in text:
+        if char.isalpha():  # Only shift letters, keep spaces & symbols unchanged
+            shift_amount = shift if direction == "encode" else -shift
+            new_char = chr(((ord(char.lower()) - 97 + shift_amount) % 26) + 97)
+            result += new_char.upper() if char.isupper() else new_char
+        else:
+            result += char  # Keep punctuation and numbers unchanged
+    
+    return result
+
+# Game loop
+while True:
+    direction = input("\nType 'encode' to encrypt, 'decode' to decrypt: ").strip().lower()
+    
+    if direction not in ['encode', 'decode']:
+        print("Invalid option! Please enter 'encode' or 'decode'.")
+        continue
+    
+    text = input("Enter your message: ").strip()
+    shift = int(input("Enter shift number: ").strip())
+
+    # Encrypt or decrypt
+    output = caesar_cipher(text, shift, direction)
+    print(f"\nYour {direction}d text: {output}")
+    
+    # Ask to play again
+    again = input("\nDo you want to try again? (yes/no): ").strip().lower()
+    if again != 'yes':
+        print("Goodbye!")
+        break
